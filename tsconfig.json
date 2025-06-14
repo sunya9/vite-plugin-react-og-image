@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    /* Projects */
+    "incremental": true,
+    "tsBuildInfoFile": "./.tsbuildinfo",
+
+    /* Language and Environment */
+    "target": "es2022",
+    "lib": ["ES2022"],
+    "jsx": "react-jsx",
+    "useDefineForClassFields": true,
+    "moduleDetection": "force",
+
+    /* Modules */
+    "module": "es2022",
+    "moduleResolution": "bundler",
+    "baseUrl": "./",
+
+    /* Emit */
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "preserveConstEnums": true,
+
+    /* Interop Constraints */
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Type Checking */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+
+    /* Completeness */
+    "skipLibCheck": true,
+
+    "erasableSyntaxOnly": true
+  }
+}
