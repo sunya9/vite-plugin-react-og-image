@@ -11,6 +11,7 @@ export default function OgImage() {
         backgroundColor: "#1a1a1a",
         color: "white",
         fontSize: 72,
+        fontFamily: "Geist",
         fontWeight: 700,
         textAlign: "center",
         padding: 40,
@@ -21,7 +22,14 @@ export default function OgImage() {
       <div style={{ fontSize: 36, opacity: 0.8, fontWeight: 400 }}>
         Auto-generated Open Graph images
       </div>
-      <div style={{ fontSize: 36, opacity: 0.8, fontWeight: 400 }}>
+      <div
+        style={{
+          fontSize: 36,
+          opacity: 0.8,
+          fontWeight: 400,
+          fontFamily: "Noto Serif JP",
+        }}
+      >
         日本語のサンプルテキストです
       </div>
     </div>

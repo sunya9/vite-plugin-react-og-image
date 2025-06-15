@@ -49,11 +49,8 @@ importers:
       '@fontsource/geist':
         specifier: ^5.2.6
         version: 5.2.6
-      '@fontsource/noto-emoji':
+      '@fontsource/noto-serif-jp':
         specifier: ^5.2.6
-        version: 5.2.6
-      '@fontsource/noto-sans-jp':
-        specifier: ^5.2.5
         version: 5.2.6
       '@types/react':
         specifier: ^19.1.2
@@ -428,11 +425,8 @@ packages:
   '@fontsource/geist@5.2.6':
     resolution: {integrity: sha512-HKRFUn4fApQr9iGaVLUWG5vs+QYFqhKa5X7AFpT6Gey0Kx0ibvpFceMbMDDdlzzqPiGkvCuvYRUN55rvqXgibg==}
 
-  '@fontsource/noto-emoji@5.2.6':
-    resolution: {integrity: sha512-bOAvXrys3TfjvG7xkUTk4NYVA5fYwRFp4xcpaVQDJ1x4jsnkUcpOH6KZzL2X7j0f20TvyCikImtDAb6EOi2cZw==}
-
-  '@fontsource/noto-sans-jp@5.2.6':
-    resolution: {integrity: sha512-BvUHYZKL87yWGRNFqInxDciU/Czp6klOEcB9l/6CnjMN77F5jc21r/A4XkMx46eY8FzVvfjCYTYUB4zExlX2Ww==}
+  '@fontsource/noto-serif-jp@5.2.6':
+    resolution: {integrity: sha512-m5H34KRFhHFDiYOc93dtzYAr893mOmlfam6pp4aiVvUE68GsgHDdy67haSwZ9y8YUrNQqo2/e7ZCi75EagX0uA==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -2046,9 +2040,7 @@ snapshots:
 
   '@fontsource/geist@5.2.6': {}
 
-  '@fontsource/noto-emoji@5.2.6': {}
-
-  '@fontsource/noto-sans-jp@5.2.6': {}
+  '@fontsource/noto-serif-jp@5.2.6': {}
 
   '@humanfs/core@0.19.1': {}
 
