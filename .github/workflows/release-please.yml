@@ -44,8 +44,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build library
-        run: pnpm build
+      # build will be executed in prepublishOnly script
 
       - name: Publish to npm
         run: npm publish --access public
