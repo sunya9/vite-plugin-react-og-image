@@ -12,6 +12,7 @@ beforeAll(async () => {
   server = await createServer({
     root,
     configFile,
+    logLevel: "warn",
   });
   host = `http://localhost:${server.config.server.port}`;
   await server.listen();

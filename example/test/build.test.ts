@@ -17,7 +17,7 @@ beforeAll(async () => {
   cleanupDistDir(distDir);
 
   // Build the project
-  await build({ root, configFile });
+  await build({ root, configFile, logLevel: "warn" });
 });
 
 afterAll(async () => {
