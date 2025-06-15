@@ -34,7 +34,7 @@ export default async function ogImagePlugin(
   let assetPath: string;
   let referenceId: string;
   const determineUrl = (resolvedConfig: ResolvedConfig) => {
-    if (resolvedConfig.isProduction) {
+    if (resolvedConfig.command === "build") {
       // For production, use the built image path
       return new URL(assetPath, options.host);
     }
@@ -81,7 +81,7 @@ export default async function ogImagePlugin(
       });
     },
     async buildStart() {
-      if (resolvedConfig.isProduction) {
+      if (resolvedConfig.command === "build") {
         const server = await createServer();
         try {
           const env = server.environments.ssr;
@@ -110,7 +110,7 @@ export default async function ogImagePlugin(
         {
           tag: "meta",
           attrs: {
-            name: "og:image",
+            property: "og:image",
             content: url.toString(),
           },
           injectTo: "head",
