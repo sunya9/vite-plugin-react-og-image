@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import reactOgImage from "vite-plugin-react-og-image";
@@ -8,8 +9,12 @@ export default defineConfig(async () => {
     plugins: [
       react(),
       reactOgImage({
-        host: "http://localhost:5173",
+        host: "https://example.com",
       }),
     ],
+    test: {
+      globals: true,
+      watch: false,
+    },
   };
 });
