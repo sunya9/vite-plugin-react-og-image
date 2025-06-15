@@ -56,9 +56,7 @@
     "vite": ">=5.0.0"
   },
   "dependencies": {
-    "@resvg/resvg-js": "^2.6.2",
-    "google-font-metadata": "^6.0.3",
-    "satori": "^0.15.2"
+    "@vercel/og": "^0.6.8"
   },
   "packageManager": "pnpm@10.12.1",
   "engines": {

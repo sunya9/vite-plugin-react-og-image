@@ -1,5 +1,4 @@
 import path from "node:path";
-import type { SatoriOptions } from "satori";
 import {
   type Plugin,
   type ResolvedConfig,
@@ -7,38 +6,30 @@ import {
   isRunnableDevEnvironment,
   normalizePath,
 } from "vite";
-import { OgImageGenerator } from "./og-image-generator";
-import { loadFonts } from "./util";
-
-export type FontOption = SatoriOptions["fonts"][number];
-export type FontOptionWithoutData = Omit<FontOption, "data">;
+import {
+  type ImageResponseOptions,
+  OgImageGenerator,
+} from "./og-image-generator";
 
 const pluginName = "vite-plugin-og-image";
 
 export interface OgImagePluginOptions {
-  componentPath?: string;
+  componentPath?: string | undefined;
   host: string;
-  satori: {
-    width?: number;
-    height?: number;
-    fonts: FontOptionWithoutData[];
-  };
+  imageResponseOptions?: ImageResponseOptions | undefined;
 }
 
-export async function ogImagePlugin(
+export default async function ogImagePlugin(
   options: OgImagePluginOptions
 ): Promise<Plugin> {
-  const {
-    componentPath = "./src/og-image.tsx",
-    satori: { width = 1200, height = 630, fonts = [{ name: "inter" }] },
-  } = options;
+  const { componentPath = "./src/og-image.tsx", imageResponseOptions } =
+    options;
+  options.imageResponseOptions;
   const outputPath = `${path.basename(
     componentPath,
     path.extname(componentPath)
   )}.png`;
   let resolvedConfig: ResolvedConfig;
-
-  const loadedFonts: FontOption[] = await loadFonts(fonts);
   let ogImageGenerator: OgImageGenerator;
   let assetPath: string;
   let referenceId: string;
@@ -62,11 +53,7 @@ export async function ogImagePlugin(
       resolvedConfig = config;
       ogImageGenerator = new OgImageGenerator({
         componentAbsPath: path.resolve(config.root, componentPath),
-        satori: {
-          width,
-          height,
-          fonts: loadedFonts,
-        },
+        imageResponseOptions: imageResponseOptions,
         resolvedConfig: config,
       });
     },
@@ -77,14 +64,12 @@ export async function ogImagePlugin(
         const env = server.environments.ssr;
         if (reqPath === devComponentPath() && isRunnableDevEnvironment(env)) {
           try {
-            // Try Vite SSR first for better HMR support
-            const pngBuffer = await ogImageGenerator.generateOgImageWithViteSSR(
+            const imageRes = await ogImageGenerator.generateOgImageWithViteSSR(
               env.runner
             );
-
             res.setHeader("Content-Type", "image/png");
             res.setHeader("Cache-Control", "no-cache");
-            res.end(pngBuffer);
+            res.end(imageRes);
           } catch (error) {
             console.error("Error generating OG image:", error);
             res.statusCode = 500;
@@ -101,12 +86,11 @@ export async function ogImagePlugin(
         try {
           const env = server.environments.ssr;
           if (isRunnableDevEnvironment(env)) {
-            const pngBuffer = await ogImageGenerator.generateOgImageWithViteSSR(
-              env.runner
-            );
+            const arrayBuffer =
+              await ogImageGenerator.generateOgImageWithViteSSR(env.runner);
             referenceId = this.emitFile({
               type: "asset",
-              source: pngBuffer,
+              source: new Uint8Array(arrayBuffer),
               name: outputPath,
             });
           }
