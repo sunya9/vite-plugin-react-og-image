@@ -16,7 +16,6 @@
     }
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "format": "biome check --write .",
     "lint": "biome check .",
     "prepublishOnly": "pnpm build",
