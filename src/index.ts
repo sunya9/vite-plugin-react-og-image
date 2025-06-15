@@ -18,7 +18,7 @@ export interface OgImagePluginOptions {
 }
 
 export default async function ogImagePlugin(
-  ogImagePluginOptions: OgImagePluginOptions
+  ogImagePluginOptions: OgImagePluginOptions,
 ): Promise<Plugin> {
   let resolvedConfig: ResolvedConfig;
   let ogImageGenerator: OgImageGenerator;

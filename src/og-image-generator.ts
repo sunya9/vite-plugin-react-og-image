@@ -1,10 +1,10 @@
-import { createElement } from "react";
-import type { ModuleRunner } from "vite/module-runner";
-import { ImageResponse } from "@vercel/og";
-import { normalizePath, type ResolvedConfig } from "vite";
-import path from "node:path";
-import type { OgImagePluginOptions } from "./";
 import { existsSync } from "node:fs";
+import path from "node:path";
+import { ImageResponse } from "@vercel/og";
+import { createElement } from "react";
+import { type ResolvedConfig, normalizePath } from "vite";
+import type { ModuleRunner } from "vite/module-runner";
+import type { OgImagePluginOptions } from "./";
 
 export type ImageResponseOptions = Omit<
   NonNullable<ConstructorParameters<typeof ImageResponse>[1]>,
@@ -23,7 +23,7 @@ export class OgImageGenerator {
     this.options = options;
     this.resolvedComponentPath = this.resolveComponentPath(
       options.ogImagePluginOptions.componentPath || "./src/og-image",
-      options.resolvedConfig.root
+      options.resolvedConfig.root,
     );
   }
 
@@ -34,7 +34,7 @@ export class OgImageGenerator {
       const element = createElement(module.default);
       const imageRes = new ImageResponse(
         element,
-        this.options.ogImagePluginOptions.imageResponseOptions
+        this.options.ogImagePluginOptions.imageResponseOptions,
       );
       const arrayBuffer = await imageRes.arrayBuffer();
       return new Uint8Array(arrayBuffer);
@@ -48,7 +48,7 @@ export class OgImageGenerator {
     const arrayBuffer = await this.generateOgImage(runner);
     const outputPath = `${path.basename(
       this.resolvedComponentPath,
-      path.extname(this.resolvedComponentPath)
+      path.extname(this.resolvedComponentPath),
     )}.png`;
     return [outputPath, arrayBuffer] as const;
   }
@@ -56,10 +56,10 @@ export class OgImageGenerator {
   get devComponentPath() {
     const resolvedRelPath = path.relative(
       this.options.resolvedConfig.root,
-      this.resolvedComponentPath
+      this.resolvedComponentPath,
     );
     const resolvedPath = normalizePath(
-      `${this.options.resolvedConfig.base}${resolvedRelPath}`
+      `${this.options.resolvedConfig.base}${resolvedRelPath}`,
     );
     return resolvedPath;
   }
@@ -71,7 +71,7 @@ export class OgImageGenerator {
     }
     return new URL(
       this.devComponentPath,
-      `http://localhost:${this.options.resolvedConfig.server.port}`
+      `http://localhost:${this.options.resolvedConfig.server.port}`,
     );
   }
 
