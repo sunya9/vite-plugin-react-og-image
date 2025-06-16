@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.2.1](https://github.com/sunya9/vite-plugin-react-og-image/compare/v0.2.0...v0.2.1) (2025-06-16)
+
+
+### Bug Fixes
+
+* add package.json to formatter ignore list ([2e6c85e](https://github.com/sunya9/vite-plugin-react-og-image/commit/2e6c85eb1f729015fcd4920498cd6a56e2e2785f))
+* respect the host value in dev env ([0d02f00](https://github.com/sunya9/vite-plugin-react-og-image/commit/0d02f008b06bdddaf7fd26b585e92c6e3e6b4064))
+* respect the host value in dev env ([20901c3](https://github.com/sunya9/vite-plugin-react-og-image/commit/20901c3fe8cbf8db35940d12e17a032adc303035))
+* restructure release-please config ([ca12e55](https://github.com/sunya9/vite-plugin-react-og-image/commit/ca12e55ee63b0abb3b4bd7d6b1a20fb0b4353afc))
+
 ## [0.2.0](https://github.com/sunya9/vite-plugin-react-og-image/compare/v0.1.0...v0.2.0) (2025-06-15)
 
 
