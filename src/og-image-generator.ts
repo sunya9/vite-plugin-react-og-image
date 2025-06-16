@@ -71,7 +71,7 @@ export class OgImageGenerator {
     }
     return new URL(
       this.devComponentPath,
-      `http://localhost:${this.options.resolvedConfig.server.port}`,
+      this.options.ogImagePluginOptions.host,
     );
   }
 

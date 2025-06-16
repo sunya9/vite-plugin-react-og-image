@@ -6,7 +6,8 @@ import { PNG_SIGNATURE, getPNGSignature, getTestPaths } from "./utils";
 const { root, configFile } = getTestPaths();
 
 let server: ViteDevServer;
-let host: string;
+const devServerHost = "http://localhost:5173";
+const ogImageHost = "https://example.com";
 
 beforeAll(async () => {
   server = await createServer({
@@ -14,7 +15,6 @@ beforeAll(async () => {
     configFile,
     logLevel: "warn",
   });
-  host = `http://localhost:${server.config.server.port}`;
   await server.listen();
 });
 
@@ -23,7 +23,7 @@ afterAll(async () => {
 });
 
 test("should return PNG image response for /src/og-image.tsx", async () => {
-  const response = await fetch(`${host}/src/og-image.tsx`);
+  const response = await fetch(`${devServerHost}/src/og-image.tsx`);
 
   expect(response.ok).toBe(true);
   expect(response.status).toBe(200);
@@ -38,7 +38,7 @@ test("should return PNG image response for /src/og-image.tsx", async () => {
 });
 
 test("should serve HTML with og:image meta tag pointing to preview", async () => {
-  const response = await fetch(`${host}/`);
+  const response = await fetch(`${devServerHost}/`);
 
   expect(response.ok).toBe(true);
   const html = await response.text();
@@ -46,5 +46,5 @@ test("should serve HTML with og:image meta tag pointing to preview", async () =>
 
   // Check og:image meta tag
   const ogImageMeta = $('meta[property="og:image"]');
-  expect(ogImageMeta.attr("content")).toBe(`${host}/src/og-image.tsx`);
+  expect(ogImageMeta.attr("content")).toBe(`${ogImageHost}/src/og-image.tsx`);
 });
