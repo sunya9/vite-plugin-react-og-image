@@ -34,7 +34,7 @@ export default defineConfig({
     react(),
     reactOgImage({
       // Specify the host for production builds
-      host: "https://yourdomain.com",
+      host: "https://example.com",
     }),
   ],
 });
@@ -81,7 +81,7 @@ The plugin automatically inserts the necessary `og:image` meta tag in your HTML.
 <meta property="og:title" content="Your Page Title" />
 <meta property="og:description" content="Your page description" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://example.com" />
+<meta property="og:url" content="https://example.com/" />
 
 <!-- Twitter Card meta tags -->
 <meta name="twitter:card" content="summary_large_image" />
@@ -157,7 +157,7 @@ export default defineConfig({
   plugins: [
     react(),
     reactOgImage({
-      host: "https://yourdomain.com",
+      host: "https://example.com",
       imageResponseOptions: {
         fonts: [
           {
