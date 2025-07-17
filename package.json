@@ -56,7 +56,7 @@
     "vite": ">=5.0.0"
   },
   "dependencies": {
-    "@vercel/og": "^0.6.8"
+    "@vercel/og": "^0.7.2"
   },
   "packageManager": "pnpm@10.12.1",
   "engines": {
