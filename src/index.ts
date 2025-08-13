@@ -17,9 +17,9 @@ export interface OgImagePluginOptions {
   imageResponseOptions?: ImageResponseOptions | undefined;
 }
 
-export default async function ogImagePlugin(
+export default function ogImagePlugin(
   ogImagePluginOptions: OgImagePluginOptions,
-): Promise<Plugin> {
+): Plugin {
   let resolvedConfig: ResolvedConfig;
   let ogImageGenerator: OgImageGenerator;
   let assetPath: string | undefined;
