@@ -1,6 +1,10 @@
 name: manual-deploy-production
 run-name: Deploy Production from ${{ inputs.ref }}
 
+permissions:
+  contents: read
+  packages: write
+
 on:
   workflow_dispatch:
     inputs:
