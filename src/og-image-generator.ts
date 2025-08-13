@@ -2,7 +2,7 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import { ImageResponse } from "@vercel/og";
 import { createElement } from "react";
-import { type ResolvedConfig, normalizePath } from "vite";
+import { normalizePath, type ResolvedConfig } from "vite";
 import type { ModuleRunner } from "vite/module-runner";
 import type { OgImagePluginOptions } from "./";
 
