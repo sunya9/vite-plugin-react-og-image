@@ -1,8 +1,8 @@
 import {
-  type Plugin,
-  type ResolvedConfig,
   createServer,
   isRunnableDevEnvironment,
+  type Plugin,
+  type ResolvedConfig,
 } from "vite";
 import {
   type ImageResponseOptions,
