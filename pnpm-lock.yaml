@@ -48,7 +48,7 @@ importers:
         version: 9.35.0
       '@fontsource/geist':
         specifier: ^5.2.6
-        version: 5.2.6
+        version: 5.2.8
       '@fontsource/noto-serif-jp':
         specifier: ^5.2.6
         version: 5.2.6
@@ -578,8 +578,8 @@ packages:
     resolution: {integrity: sha512-Z5kJ+wU3oA7MMIqVR9tyZRtjYPr4OC004Q4Rw7pgOKUOKkJfZ3O24nz3WYfGRpMDNmcOi3TwQOmgm7B7Tpii0w==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@fontsource/geist@5.2.6':
-    resolution: {integrity: sha512-HKRFUn4fApQr9iGaVLUWG5vs+QYFqhKa5X7AFpT6Gey0Kx0ibvpFceMbMDDdlzzqPiGkvCuvYRUN55rvqXgibg==}
+  '@fontsource/geist@5.2.8':
+    resolution: {integrity: sha512-pI54klK6vz8fVpAVyV+iODGLEzw73cs1XJqV9PIXgW8MYMmBcwK6lKKaWqJrNHwEx8ppz9cuhussb6arXQ/PVQ==}
 
   '@fontsource/noto-serif-jp@5.2.6':
     resolution: {integrity: sha512-m5H34KRFhHFDiYOc93dtzYAr893mOmlfam6pp4aiVvUE68GsgHDdy67haSwZ9y8YUrNQqo2/e7ZCi75EagX0uA==}
@@ -2414,7 +2414,7 @@ snapshots:
       '@eslint/core': 0.15.2
       levn: 0.4.1
 
-  '@fontsource/geist@5.2.6': {}
+  '@fontsource/geist@5.2.8': {}
 
   '@fontsource/noto-serif-jp@5.2.6': {}
 
