@@ -9,6 +9,12 @@ updates:
     commit-message:
       prefix: "chore"
       include: "scope"
+    groups:
+      dev-dependencies:
+        dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"
 
   # GitHub Actions
   - package-ecosystem: "github-actions"
