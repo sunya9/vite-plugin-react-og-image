@@ -28,7 +28,7 @@
     "globals": "^17.3.0",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.39.1",
-    "vite": "^7.1.2",
+    "vite": "^8.0.0",
     "vite-plugin-react-og-image": "link:..",
     "vitest": "^4.0.3"
   }
