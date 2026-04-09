@@ -27,7 +27,7 @@ export default function OgImage() {
           fontSize: 36,
           opacity: 0.8,
           fontWeight: 400,
-          fontFamily: "Noto Serif JP",
+          fontFamily: "Noto Sans",
         }}
       >
         日本語のサンプルテキストです
