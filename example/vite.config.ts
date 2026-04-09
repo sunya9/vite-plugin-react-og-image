@@ -22,7 +22,7 @@ export default defineConfig(async () => {
               weight: 700,
             },
             {
-              name: "Noto Sans",
+              name: "Noto Sans JP",
               data: await readFile(
                 "./node_modules/@fontsource/noto-sans-jp/files/noto-sans-jp-japanese-400-normal.woff",
               ),
