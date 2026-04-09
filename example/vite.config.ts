@@ -16,14 +16,16 @@ export default defineConfig(async () => {
             {
               name: "Geist",
               data: await readFile(
-                "./node_modules/@fontsource/geist/files/geist-latin-700-normal.woff"
+                "./node_modules/@fontsource/geist/files/geist-latin-700-normal.woff",
               ),
+              weight: 700,
             },
             {
               name: "Noto Sans",
               data: await readFile(
-                "./node_modules/@fontsource/noto-serif-jp/files/noto-serif-jp-japanese-400-normal.woff"
+                "./node_modules/@fontsource/noto-sans-jp/files/noto-sans-jp-japanese-400-normal.woff",
               ),
+              weight: 400,
             },
           ],
         },
