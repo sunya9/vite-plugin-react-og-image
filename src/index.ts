@@ -1,9 +1,4 @@
-import {
-  createServer,
-  isRunnableDevEnvironment,
-  type Plugin,
-  type ResolvedConfig,
-} from "vite";
+import { createServer, type Plugin, type ResolvedConfig } from "vite";
 import {
   type ImageResponseOptions,
   OgImageGenerator,
@@ -36,14 +31,14 @@ export default function ogImagePlugin(
       });
     },
     configureServer(server) {
-      // Add middleware for development server
       server.middlewares.use(async (req, res, next) => {
         const reqPath = req.url?.split("?")[0];
-        const env = server.environments.ssr;
         const devPath = ogImageGenerator.devComponentPath;
-        if (reqPath === devPath && isRunnableDevEnvironment(env)) {
+        if (reqPath === devPath) {
           try {
-            const imageRes = await ogImageGenerator.generateOgImage(env.runner);
+            const imageRes = await ogImageGenerator.generateOgImage((id) =>
+              server.ssrLoadModule(id),
+            );
             res.setHeader("Content-Type", "image/png");
             res.setHeader("Cache-Control", "no-cache");
             res.end(imageRes);
@@ -61,16 +56,15 @@ export default function ogImagePlugin(
       if (resolvedConfig.command === "build") {
         const server = await createServer();
         try {
-          const env = server.environments.ssr;
-          if (isRunnableDevEnvironment(env)) {
-            const [outputPath, arrayBuffer] =
-              await ogImageGenerator.generateOgImageInProd(env.runner);
-            referenceId = this.emitFile({
-              type: "asset",
-              source: new Uint8Array(arrayBuffer),
-              name: outputPath,
-            });
-          }
+          const [outputPath, arrayBuffer] =
+            await ogImageGenerator.generateOgImageInProd((id) =>
+              server.ssrLoadModule(id),
+            );
+          referenceId = this.emitFile({
+            type: "asset",
+            source: new Uint8Array(arrayBuffer),
+            name: outputPath,
+          });
         } catch (error) {
           console.error("Error generating OG image:", error);
         } finally {
