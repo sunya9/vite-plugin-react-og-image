@@ -11,6 +11,7 @@ export default defineConfig(async () => {
       react(),
       reactOgImage({
         host: "https://example.com",
+        alt: "Vite React OG Image Example",
         imageResponseOptions: {
           fonts: [
             {

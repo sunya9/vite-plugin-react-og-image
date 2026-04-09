@@ -1,4 +1,9 @@
-import { createServer, type Plugin, type ResolvedConfig } from "vite";
+import {
+  createServer,
+  type HtmlTagDescriptor,
+  type Plugin,
+  type ResolvedConfig,
+} from "vite";
 import {
   type ImageResponseOptions,
   OgImageGenerator,
@@ -9,6 +14,7 @@ const pluginName = "vite-plugin-og-image";
 export interface OgImagePluginOptions {
   componentPath?: string | undefined;
   host: string;
+  alt?: string | undefined;
   imageResponseOptions?: ImageResponseOptions | undefined;
 }
 
@@ -77,7 +83,8 @@ export default function ogImagePlugin(
     },
     transformIndexHtml() {
       const url = ogImageGenerator.determineUrl(assetPath);
-      return [
+      const { width, height } = ogImageGenerator.imageSize;
+      const commonTags: HtmlTagDescriptor[] = [
         {
           tag: "meta",
           attrs: {
@@ -86,7 +93,45 @@ export default function ogImagePlugin(
           },
           injectTo: "head",
         },
-      ];
+        {
+          tag: "meta",
+          attrs: {
+            property: "og:image:type",
+            content: "image/png",
+          },
+          injectTo: "head",
+        },
+        {
+          tag: "meta",
+          attrs: {
+            property: "og:image:width",
+            content: String(width),
+          },
+          injectTo: "head",
+        },
+        {
+          tag: "meta",
+          attrs: {
+            property: "og:image:height",
+            content: String(height),
+          },
+          injectTo: "head",
+        },
+      ] as const;
+      if (ogImagePluginOptions.alt) {
+        return [
+          ...commonTags,
+          {
+            tag: "meta",
+            attrs: {
+              property: "og:image:alt",
+              content: ogImagePluginOptions.alt,
+            },
+            injectTo: "head",
+          },
+        ];
+      }
+      return commonTags;
     },
   };
 }

@@ -47,4 +47,17 @@ test("should serve HTML with og:image meta tag pointing to preview", async () =>
   // Check og:image meta tag
   const ogImageMeta = $('meta[property="og:image"]');
   expect(ogImageMeta.attr("content")).toBe(`${ogImageHost}/src/og-image.tsx`);
+
+  // Check og:image:width and og:image:height meta tags
+  const ogImageWidth = $('meta[property="og:image:width"]');
+  const ogImageHeight = $('meta[property="og:image:height"]');
+  expect(ogImageWidth.attr("content")).toBe("1200");
+  expect(ogImageHeight.attr("content")).toBe("630");
+
+  // Check og:image:type and og:image:alt meta tags
+  const ogImageType = $('meta[property="og:image:type"]');
+  expect(ogImageType.attr("content")).toBe("image/png");
+
+  const ogImageAlt = $('meta[property="og:image:alt"]');
+  expect(ogImageAlt.attr("content")).toBe("Vite React OG Image Example");
 });

@@ -55,6 +55,14 @@ export class OgImageGenerator {
     return [outputPath, arrayBuffer] as const;
   }
 
+  get imageSize() {
+    const opts = this.options.ogImagePluginOptions.imageResponseOptions;
+    return {
+      width: opts?.width ?? 1200,
+      height: opts?.height ?? 630,
+    };
+  }
+
   get devComponentPath() {
     const resolvedRelPath = path.relative(
       this.options.resolvedConfig.root,

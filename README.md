@@ -74,7 +74,15 @@ export default function OgImage() {
 
 ### 3. Complete!
 
-The plugin automatically inserts the necessary `og:image` meta tag in your HTML. You can add other Open Graph meta tags as needed:
+The plugin automatically inserts the following meta tags in your HTML:
+
+- `og:image` — Image URL
+- `og:image:type` — Always `image/png`
+- `og:image:width` — Image width (default: 1200)
+- `og:image:height` — Image height (default: 630)
+- `og:image:alt` — Alt text (when `alt` option is set)
+
+You can add other Open Graph meta tags as needed:
 
 ```html
 <!-- index.html - Add these manually if needed -->
@@ -120,6 +128,12 @@ interface OgImagePluginOptions {
   componentPath?: string;
 
   /**
+   * Alt text for the OG image
+   * When set, generates an og:image:alt meta tag
+   */
+  alt?: string;
+
+  /**
    * Image response options (from @vercel/og)
    * See: https://vercel.com/docs/functions/og-image-generation
    * Note: ResponseInit properties (status, headers, etc.) are not supported
@@ -147,7 +161,7 @@ interface OgImagePluginOptions {
 Use [@fontsource](https://fontsource.org/) packages for easy font integration:
 
 ```bash
-pnpm add @fontsource/geist @fontsource/noto-serif-jp
+pnpm add @fontsource/geist @fontsource/noto-sans-jp
 ```
 
 ```typescript
@@ -158,6 +172,7 @@ export default defineConfig({
     react(),
     reactOgImage({
       host: "https://example.com",
+      alt: "Your Amazing App",
       imageResponseOptions: {
         fonts: [
           {
@@ -168,9 +183,9 @@ export default defineConfig({
             weight: 700,
           },
           {
-            name: "Noto Serif JP",
+            name: "Noto Sans",
             data: await readFile(
-              "./node_modules/@fontsource/noto-serif-jp/files/noto-serif-jp-japanese-400-normal.woff"
+              "./node_modules/@fontsource/noto-sans-jp/files/noto-sans-jp-japanese-400-normal.woff"
             ),
             weight: 400,
           },
