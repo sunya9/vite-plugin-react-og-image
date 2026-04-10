@@ -54,4 +54,17 @@ test("should update index.html with correct asset path", async () => {
   expect(ogImageMeta.attr("content")).toMatch(
     /^https:\/\/example\.com\/assets\/og-image-\w+\.png$/
   );
+
+  // Check og:image:width and og:image:height meta tags
+  const ogImageWidth = $('meta[property="og:image:width"]');
+  const ogImageHeight = $('meta[property="og:image:height"]');
+  expect(ogImageWidth.attr("content")).toBe("1200");
+  expect(ogImageHeight.attr("content")).toBe("630");
+
+  // Check og:image:type and og:image:alt meta tags
+  const ogImageType = $('meta[property="og:image:type"]');
+  expect(ogImageType.attr("content")).toBe("image/png");
+
+  const ogImageAlt = $('meta[property="og:image:alt"]');
+  expect(ogImageAlt.attr("content")).toBe("Vite React OG Image Example");
 });

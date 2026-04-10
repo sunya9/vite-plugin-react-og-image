@@ -3,7 +3,6 @@ import path from "node:path";
 import { ImageResponse } from "@vercel/og";
 import { createElement } from "react";
 import { normalizePath, type ResolvedConfig } from "vite";
-import type { ModuleRunner } from "vite/module-runner";
 import type { OgImagePluginOptions } from "./";
 
 export type ImageResponseOptions = Omit<
@@ -27,11 +26,12 @@ export class OgImageGenerator {
     );
   }
 
-  async generateOgImage(runner: ModuleRunner) {
-    // Load the module through Vite's SSR
+  async generateOgImage(
+    loadModule: (id: string) => Promise<Record<string, unknown>>,
+  ) {
     try {
-      const module = await runner.import(this.resolvedComponentPath);
-      const element = createElement(module.default);
+      const module = await loadModule(this.resolvedComponentPath);
+      const element = createElement(module.default as React.ComponentType);
       const imageRes = new ImageResponse(
         element,
         this.options.ogImagePluginOptions.imageResponseOptions,
@@ -44,13 +44,23 @@ export class OgImageGenerator {
     }
   }
 
-  async generateOgImageInProd(runner: ModuleRunner) {
-    const arrayBuffer = await this.generateOgImage(runner);
+  async generateOgImageInProd(
+    loadModule: (id: string) => Promise<Record<string, unknown>>,
+  ) {
+    const arrayBuffer = await this.generateOgImage(loadModule);
     const outputPath = `${path.basename(
       this.resolvedComponentPath,
       path.extname(this.resolvedComponentPath),
     )}.png`;
     return [outputPath, arrayBuffer] as const;
+  }
+
+  get imageSize() {
+    const opts = this.options.ogImagePluginOptions.imageResponseOptions;
+    return {
+      width: opts?.width ?? 1200,
+      height: opts?.height ?? 630,
+    };
   }
 
   get devComponentPath() {
