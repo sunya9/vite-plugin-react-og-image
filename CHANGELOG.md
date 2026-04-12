@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.4.0](https://github.com/sunya9/vite-plugin-react-og-image/compare/v0.3.0...v0.4.0) (2026-04-12)
+
+
+### Features
+
+* add example for testing og-image ([9027173](https://github.com/sunya9/vite-plugin-react-og-image/commit/9027173e3ce621919bce2550bf985cfb777af94d))
+* add initial implementation of vite-plugin-react-og-image with configuration files ([19714f7](https://github.com/sunya9/vite-plugin-react-og-image/commit/19714f706507ab3aa07f475a2e2e3471fc0bfd89))
+* add README and GitHub workflows for CI, Dependabot, and release management ([1a5806e](https://github.com/sunya9/vite-plugin-react-og-image/commit/1a5806eff732766ec6dcf704a0f5472d7cd687f5))
+* enhance example tests for og-image generation and update Vite configuration ([4628c54](https://github.com/sunya9/vite-plugin-react-og-image/commit/4628c543819468c9943a4f8b8991b4d1a0b01c6f))
+* Vite 8 support and OG meta tag enhancements ([#154](https://github.com/sunya9/vite-plugin-react-og-image/issues/154)) ([8df934e](https://github.com/sunya9/vite-plugin-react-og-image/commit/8df934e880094d4429f627181a2da9606f2b0db3))
+
+
+### Bug Fixes
+
+* add 'example' to ignored files in biome.json ([474542e](https://github.com/sunya9/vite-plugin-react-og-image/commit/474542e9ba4d608219b7577c9e277a6f13ebe147))
+* add package.json to formatter ignore list ([2e6c85e](https://github.com/sunya9/vite-plugin-react-og-image/commit/2e6c85eb1f729015fcd4920498cd6a56e2e2785f))
+* respect the host value in dev env ([0d02f00](https://github.com/sunya9/vite-plugin-react-og-image/commit/0d02f008b06bdddaf7fd26b585e92c6e3e6b4064))
+* respect the host value in dev env ([20901c3](https://github.com/sunya9/vite-plugin-react-og-image/commit/20901c3fe8cbf8db35940d12e17a032adc303035))
+* restructure release-please config ([ca12e55](https://github.com/sunya9/vite-plugin-react-og-image/commit/ca12e55ee63b0abb3b4bd7d6b1a20fb0b4353afc))
+* update production check to use build command and correct meta property ([fe4a2b9](https://github.com/sunya9/vite-plugin-react-og-image/commit/fe4a2b93e2aa0509ffc27c4c05146a72de89cbc3))
+
 ## [0.3.0](https://github.com/sunya9/vite-plugin-react-og-image/compare/v0.2.1...v0.3.0) (2026-04-12)
 
 
