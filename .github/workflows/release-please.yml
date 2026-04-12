@@ -8,6 +8,7 @@ permissions:
   contents: write
   pull-requests: write
   issues: write
+  id-token: write # required for npm oidc
 
 jobs:
   release-please:
@@ -38,7 +39,7 @@ jobs:
 
       - uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: "pnpm"
           registry-url: "https://registry.npmjs.org"
 
@@ -48,6 +49,4 @@ jobs:
       # build will be executed in prepublishOnly script
 
       - name: Publish to npm
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public --provenance
