@@ -45,10 +45,10 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@biomejs/biome": "2.4.13",
+    "@biomejs/biome": "2.4.16",
     "@types/node": "^25.0.2",
     "@types/react": "^19.1.8",
-    "tsdown": "^0.21.7",
+    "tsdown": "^0.22.1",
     "typescript": "^6.0.2",
     "vite": "^8.0.3"
   },
