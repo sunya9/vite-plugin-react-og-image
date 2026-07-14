@@ -1,7 +1,7 @@
 packages:
   - example
 
-onlyBuiltDependencies:
-  - "@biomejs/biome"
-  - esbuild
-  - sharp
+allowBuilds:
+  sharp: true
+  '@biomejs/biome': true
+  esbuild: true
