@@ -1,9 +1,10 @@
 import { existsSync } from "node:fs";
 import path from "node:path";
-import { ImageResponse } from "@vercel/og";
+import type { ImageResponse } from "@vercel/og";
 import { createElement } from "react";
 import { normalizePath, type ResolvedConfig } from "vite";
 import type { OgImagePluginOptions } from "./";
+import { loadVercelOg } from "./vercel-og-loader";
 
 export type ImageResponseOptions = Omit<
   NonNullable<ConstructorParameters<typeof ImageResponse>[1]>,
@@ -30,6 +31,7 @@ export class OgImageGenerator {
     loadModule: (id: string) => Promise<Record<string, unknown>>,
   ) {
     try {
+      const { ImageResponse } = await loadVercelOg();
       const module = await loadModule(this.resolvedComponentPath);
       const element = createElement(module.default as React.ComponentType);
       const imageRes = new ImageResponse(
