@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.0.0](https://github.com/sunya9/vite-plugin-react-og-image/compare/v0.4.0...v1.0.0) (2026-09-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* Node.js 20 is no longer supported.
+
+### Features
+
+* require Node.js 22 or later ([7bd3450](https://github.com/sunya9/vite-plugin-react-og-image/commit/7bd34508df845d4fd93ff1873eddece6df158407))
+
+
+### Bug Fixes
+
+* **deps:** update @vercel/og to v1 ([d5f8d79](https://github.com/sunya9/vite-plugin-react-og-image/commit/d5f8d790ce42c7bea4794ac4a864f0ff6e9dcad4))
+* point package entry points at actual build outputs ([539fcf9](https://github.com/sunya9/vite-plugin-react-og-image/commit/539fcf976382089fc92f173889806ed96a70efe1))
+* work around @vercel/og 1.x ESM packaging bugs ([8cecfef](https://github.com/sunya9/vite-plugin-react-og-image/commit/8cecfeffd2ca550f2e835606a8b2e5a70c9b1d59))
+
 ## [0.4.0](https://github.com/sunya9/vite-plugin-react-og-image/compare/v0.3.0...v0.4.0) (2026-04-12)
 
 
