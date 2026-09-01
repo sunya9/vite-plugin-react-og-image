@@ -7,7 +7,10 @@ updates:
       interval: "weekly"
     open-pull-requests-limit: 5
     commit-message:
-      prefix: "chore"
+      # "fix" makes release-please cut a patch release for runtime deps,
+      # while dev deps stay "chore" and don't trigger a release
+      prefix: "fix"
+      prefix-development: "chore"
       include: "scope"
     groups:
       dev-dependencies:
