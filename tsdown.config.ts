@@ -8,6 +8,8 @@ export default defineConfig({
   deps: {
     neverBundle: ["vite"],
   },
-  clean: false,
+  // Stale artifacts from older output layouts (e.g. dist/index.js) must not
+  // linger, since package.json exports point at the current layout
+  clean: true,
   target: false,
 });
