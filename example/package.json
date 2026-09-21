@@ -30,6 +30,6 @@
     "typescript-eslint": "^8.67.0",
     "vite": "^8.2.2",
     "vite-plugin-react-og-image": "link:..",
-    "vitest": "^4.1.11"
+    "vitest": "^5.0.1"
   }
 }
