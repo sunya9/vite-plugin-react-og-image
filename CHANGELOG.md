@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.1](https://github.com/sunya9/vite-plugin-react-og-image/compare/v1.0.0...v1.0.1) (2026-09-21)
+
+
+### Bug Fixes
+
+* **deps:** bump react and @types/react ([#199](https://github.com/sunya9/vite-plugin-react-og-image/issues/199)) ([619dd68](https://github.com/sunya9/vite-plugin-react-og-image/commit/619dd68778719dbf21c2e48a4806f5862d70f71e))
+* **deps:** bump react-dom and @types/react-dom ([#200](https://github.com/sunya9/vite-plugin-react-og-image/issues/200)) ([d203cd2](https://github.com/sunya9/vite-plugin-react-og-image/commit/d203cd28cce17283e8c10c6bec5656e3e2a9cdbd))
+
 ## [1.0.0](https://github.com/sunya9/vite-plugin-react-og-image/compare/v0.4.0...v1.0.0) (2026-09-01)
 
 
