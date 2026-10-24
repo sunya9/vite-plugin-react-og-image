@@ -114,7 +114,7 @@ importers:
         version: 1.0.3(@types/node@26.6.5)
       react:
         specifier: '>=18.0.0'
-        version: 19.2.7
+        version: 19.3.1
     devDependencies:
       '@biomejs/biome':
         specifier: 2.5.15
@@ -139,10 +139,10 @@ importers:
     dependencies:
       react:
         specifier: ^19.2.8
-        version: 19.3.0
+        version: 19.3.1
       react-dom:
         specifier: ^19.2.8
-        version: 19.3.0(react@19.3.0)
+        version: 19.3.0(react@19.3.1)
     devDependencies:
       '@eslint/js':
         specifier: ^10.0.1
@@ -1572,12 +1572,8 @@ packages:
     peerDependencies:
       react: ^19.3.0
 
-  react@19.2.7:
-    resolution: {integrity: sha512-HNe9WslTbXmFK8o8cmwgAeJFSBvt1bPdHCVKtaaV+WlAN36mpT4hcRpwbf3fY56ar2oIXzsBpOAiIRHAdY0OlQ==}
-    engines: {node: '>=0.10.0'}
-
-  react@19.3.0:
-    resolution: {integrity: sha512-E8LUcbtBWt20bbl2YoHfx4ZDBdxVTfOKtCZn9cDSJ4l6/nuoApcpIBcj47t2wZoVX8g2ZHuMHbiShgCR1T5Sog==}
+  react@19.3.1:
+    resolution: {integrity: sha512-QNhWdt7nrgVWWQG58QuGsAR3jv3Hbe4mb4vz7w2csnHavciZJgda1CPNaldF6eVxv90ud3jUXpKlHL69gO38yw==}
     engines: {node: '>=0.10.0'}
 
   resolve-pkg-maps@1.0.0:
@@ -3052,14 +3048,12 @@ snapshots:
 
   quansync@1.0.0: {}
 
-  react-dom@19.3.0(react@19.3.0):
+  react-dom@19.3.0(react@19.3.1):
     dependencies:
-      react: 19.3.0
+      react: 19.3.1
       scheduler: 0.28.0
 
-  react@19.2.7: {}
-
-  react@19.3.0: {}
+  react@19.3.1: {}
 
   resolve-pkg-maps@1.0.0: {}
 
